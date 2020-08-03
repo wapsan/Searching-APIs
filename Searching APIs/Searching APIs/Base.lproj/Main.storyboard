@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Searching_APIs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVt-jV-4nB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="Ibi-QC-lt1">
+                                        <nil key="title"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="ol7-np-mwi">
+                                            <rect key="frame" x="144.5" y="6" width="125" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="iTunes"/>
+                                                <segment title="GitHub"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentIndexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="a2r-8H-8e7"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="XwE-cw-p3D">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sc4-FS-qT3">
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XwE-cw-p3D" firstAttribute="top" secondItem="XVt-jV-4nB" secondAttribute="bottom" id="0WJ-i6-hQ0"/>
+                            <constraint firstItem="XwE-cw-p3D" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B8N-eZ-auD"/>
+                            <constraint firstItem="XVt-jV-4nB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mga-0b-pq4"/>
+                            <constraint firstItem="XVt-jV-4nB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bly-zH-qN1"/>
+                            <constraint firstItem="Sc4-FS-qT3" firstAttribute="top" secondItem="XwE-cw-p3D" secondAttribute="bottom" id="hHQ-Wd-9R6"/>
+                            <constraint firstItem="XwE-cw-p3D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kzB-5A-Ez1"/>
+                            <constraint firstItem="XVt-jV-4nB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mkp-zp-BAd"/>
+                            <constraint firstItem="Sc4-FS-qT3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pHz-dY-Q6m"/>
+                            <constraint firstItem="Sc4-FS-qT3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qck-le-Kdf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sc4-FS-qT3" secondAttribute="trailing" id="zFn-4R-RCq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="XwE-cw-p3D" id="JEN-Ds-DB6"/>
+                        <outlet property="segmentControl" destination="ol7-np-mwi" id="DxT-cR-d3c"/>
+                        <outlet property="tableView" destination="Sc4-FS-qT3" id="ooI-47-E1q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-310.14492753623193" y="-28.125"/>
+        </scene>
+    </scenes>
+</document>
