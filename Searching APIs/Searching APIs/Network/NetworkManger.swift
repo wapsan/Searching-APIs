@@ -1,27 +1,30 @@
-
 import Foundation
 
-struct ITunesURLPaths {
-    static let search = "search"
-    private init () {}
+struct ITunesURLElements {
+    static let baseURL = "https://itunes.apple.com/"
+    static let searchPath = "search"
 }
 
-class ITunesSarchManager: RequestManager {
+struct GitHubUrlElements {
+    static let baseURL = "https://api.github.com/"
+    static let searchUserPath = "search/users"
+}
+
+class NetworkManger: RequestProtocol {
     
     //MARK: - Singletone propertie
-    static let shared = ITunesSarchManager()
-    
+    static let shared = NetworkManger()
     
     //MARK: - Private properties
     private lazy var session = URLSession(configuration: .default)
-    private let baseUrl = "https://itunes.apple.com/"
     private lazy var parameters: [String: String] = [:]
     
     //MARK: - Initialization
     private init() {}
     
     //MARK: - Public methods
-    func request<T: Decodable>(url: String,
+    func request<T: Decodable>(baseURL: String,
+                               url: String,
                                parameters: [String: String]? = nil,
                                completionHandler: @escaping (T) -> Void,
                                errorHandler: @escaping (RequestError) -> Void) {
@@ -32,7 +35,7 @@ class ITunesSarchManager: RequestManager {
             }
         }
         guard let fullUrl = self.getUrlWith(
-            url: self.baseUrl,
+            url: baseURL,
             path: url,
             params: urlParameters) else {
                 errorHandler(.incorrectUrl)
@@ -66,12 +69,7 @@ class ITunesSarchManager: RequestManager {
                     }
                 }
             }
-            
-            
         })
         dataTask.resume()
     }
-    
 }
-
-
